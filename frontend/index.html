@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas - Localizador de Estabelecimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Atlas</h1>
+            <p class="subtitle">Encontre estabelecimentos próximos a você</p>
+        </header>
+
+        <main>
+            <!-- Formulário de Busca -->
+            <section class="search-section">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Ex: Distribuidora de Bebidas, Farmácia, Restaurante..."
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="btn-primary">
+                        <span class="btn-text">Buscar</span>
+                        <span class="btn-loading" style="display: none;">Buscando...</span>
+                    </button>
+                </div>
+
+                <div class="search-options">
+                    <label for="radiusSelect">Raio de busca:</label>
+                    <select id="radiusSelect">
+                        <option value="1000">1 km</option>
+                        <option value="2000">2 km</option>
+                        <option value="5000" selected>5 km</option>
+                        <option value="10000">10 km</option>
+                        <option value="20000">20 km</option>
+                    </select>
+                </div>
+
+                <div id="locationStatus" class="location-status">
+                    <span class="status-icon">📍</span>
+                    <span id="locationText">Aguardando localização...</span>
+                </div>
+            </section>
+
+            <!-- Mensagens de Erro/Info -->
+            <div id="messageBox" class="message-box" style="display: none;"></div>
+
+            <!-- Resultados -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>Resultados</h2>
+                    <span id="resultsCount" class="results-count"></span>
+                </div>
+                <div id="resultsList" class="results-list"></div>
+            </section>
+
+            <!-- Histórico -->
+            <section class="history-section">
+                <details>
+                    <summary>📋 Histórico de Buscas</summary>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-state">Nenhuma busca realizada ainda</p>
+                    </div>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>Atlas v1.0 - Sistema de Localização de Estabelecimentos</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
